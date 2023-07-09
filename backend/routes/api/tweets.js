@@ -14,13 +14,15 @@ router.get(
     })
 );
 
-router.post("/", async (req, res) => {
-    const tweet = req.body;
+router.post(
+    "/",
+    asyncHandler(async (req, res) => {
+        const tweet = req.body;
 
-    const newTweet = await Tweet.create(tweet);
-    res.json(newTweet);
+        const newTweet = await Tweet.create(tweet);
 
-    // console.log(newTweet);
-});
+        res.json(newTweet);
+    })
+);
 
 module.exports = router;
