@@ -25,7 +25,7 @@ export const getAllTweets = () => async (dispatch) => {
 const addTweet = (tweet) => {
     return {
         type: ADD_TWEET,
-        payload: tweet,
+        tweet,
     };
 };
 
@@ -55,7 +55,7 @@ const tweetsReducer = (state = initialState, action) => {
             return newState;
 
         case ADD_TWEET:
-            newState[action.payload.id] = action.payload;
+            newState[action.tweet.id] = action.tweet;
             return newState;
 
         default:
